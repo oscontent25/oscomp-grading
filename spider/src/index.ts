@@ -176,12 +176,33 @@ async function getGrade() {
 
             // Get userinfo
             let userInfo = await octokit.request('GET /users/{username}', { username: githubUsername});
-            
+            const points = repo['points_awarded'];
+
+            // 第一步：将字符串按6位划分，不足6位左侧补0
+            const sixDigitGroups = [];
+            for (let i = points.length; i > 0; i -= 6) {
+            const start = Math.max(0, i - 6);
+            const group = points.slice(start, i);
+            sixDigitGroups.unshift(group.padStart(6, '0')); // 补齐到6位
+            }
+
+            // 第二步：将每6位分成两个3位，分别存入两个数组
+            const firstThreeDigits: any[] = [];
+            const secondThreeDigits: any[] = [];
+
+            sixDigitGroups.forEach(group => {
+            const firstPart = group.slice(0, 3);  // 前3位
+            const secondPart = group.slice(3, 6); // 后3位
+            firstThreeDigits.push(parseInt(firstPart));
+            secondThreeDigits.push(parseInt(secondPart));
+            });
+
             let student = {
                 name: userInfo['data']['login'],
                 avatar: userInfo['data']['avatar_url'],
                 repo_url: repo['student_repository_url'],
-                grades: { main: repo['points_awarded'] },
+                grades: { test3: firstThreeDigits[0], test4: firstThreeDigits[0] },
+                maxgrades: { test3: secondThreeDigits[1], test4: secondThreeDigits[1] },
                 details: "",
                 lastUpdateAt: new Date(repo['submission_timestamp']).getTime()
             };
