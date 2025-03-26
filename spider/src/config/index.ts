@@ -4,8 +4,8 @@ export const config = dotenv.config();
 
 export const organiztion: string = 'oscontent25';            // 组织
 export const fullOrganization: string = '202499350-oscontent25-classroom-os25'; // classroom名称
-export const assignment = 'test3';   // assignment
-export const works = ['test3', 'test4']; // assignment 的不同情况
+export const assignment = 'oscomp-test';   // assignment
+export const works = ['basic-glibc', 'libc-test-glibc', 'lua-glibc', 'busybox-glibc', 'iozone-glibc', 'basic-musl', 'libc-test-musl', 'lua-musl', 'busybox-musl', 'iozone-musl']; // assignment 的不同情况
 export const AUTH_TOKEN = process.env['TOKEN'];
 export const SESSION_TOKEN = process.env['SESSION_TOKEN'];
 
