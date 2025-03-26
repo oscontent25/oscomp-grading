@@ -90,6 +90,8 @@ const ClassRoomRank = (props: IProps) => {
         title: '最后提交时间',
         align: 'center',
         dataIndex: 'lastUpdateAt',
+        width: 350,
+        align: 'center',
         fixed: true,
         key: 'lastUpdateAt',
         render(text: number | null | undefined, record: StudentInfo) {
