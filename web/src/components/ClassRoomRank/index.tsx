@@ -94,7 +94,7 @@ const ClassRoomRank = (props: IProps) => {
         key: 'lastUpdateAt',
         render(text: number | null | undefined, record: StudentInfo) {
           if(text == null || text == undefined) {
-            return <span>-<span>;
+            return <span>-</span>;
           }
           let time = dayjs(text).locale("Asia/Beijing").format("YYYY/MM/DD HH:mm");
           return <span>{time}</span>;
