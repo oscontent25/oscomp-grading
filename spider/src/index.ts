@@ -201,8 +201,8 @@ async function getGrade() {
                 name: userInfo['data']['login'],
                 avatar: userInfo['data']['avatar_url'],
                 repo_url: repo['student_repository_url'],
-                grades: { test3: firstThreeDigits[0], test4: firstThreeDigits[0] },
-                maxgrades: { test3: secondThreeDigits[1], test4: secondThreeDigits[1] },
+                grades: { basic_glibc: firstThreeDigits[0], libc_glibc: firstThreeDigits[1],  lua_glibc: firstThreeDigits[2], busybox_glibc: firstThreeDigits[3],  iozone_glibc: firstThreeDigits[4]},
+                maxgrades: { basic_glibc: secondThreeDigits[0], libc_glibc: secondThreeDigits[1],  lua_glibc: secondThreeDigits[2], busybox_glibc: secondThreeDigits[3],  iozone_glibc: secondThreeDigits[4]},
                 details: "",
                 lastUpdateAt: new Date(repo['submission_timestamp']).getTime()
             };
