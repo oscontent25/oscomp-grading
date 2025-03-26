@@ -16,6 +16,7 @@ interface StudentInfo {
   rank?: number
   total?: number
   lastUpdateAt?: number | null
+  maxgrades: any
 }
 
 interface IProps {
@@ -77,8 +78,9 @@ const ClassRoomRank = (props: IProps) => {
           key: '',
           render(_text: string, record: StudentInfo) {
             let grade = record.grades[item as keyof typeof record.grades];
+            let maxgrade = record.maxgrades[item as keyof typeof record.grades];
             if(grade) {
-              return <span>{grade}</span>
+              return <span>{grade}/{maxgrade}</span>
             }
             return <span>-</span>
           }
