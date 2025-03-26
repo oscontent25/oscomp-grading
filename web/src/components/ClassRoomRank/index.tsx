@@ -96,7 +96,8 @@ const ClassRoomRank = (props: IProps) => {
           if(text == null || text == undefined) {
             return <span>-<span>;
           }
-          return <span>{dayjs(text).locale("Asia/Beijing").format("YYYY/MM/DD HH:mm")}</span>;
+          let time = dayjs(text).locale("Asia/Beijing").format("YYYY/MM/DD HH:mm");
+          return <span>{time}</span>;
           // return <AvatarInfo rank={record.rank} avatarURL={record.avatar} name={text} />
         }
       },
