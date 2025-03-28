@@ -31,6 +31,13 @@ jobs:
         run: |
           cd web && npm install && npm run build
           mv dist ../build
+      - name: save data files
+        run: |
+          git config user.name wingrew
+          git config user.email 1934247510@qq.com
+          git add .
+          git commit -am "updata"
+          git push origin main
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3.0.0
         with:
